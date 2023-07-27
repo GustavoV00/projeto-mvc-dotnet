@@ -15,7 +15,7 @@ public static class SeedData
                 DbContextOptions<MvcMovieContext>>()))
         {
             // Look for any movies.
-            if (context.Movie.Any())
+            if (context.Movie.Any() && context.Cliente.Any())
             {
                 return;   // DB has been seeded
             }
@@ -53,6 +53,38 @@ public static class SeedData
                     Price = 3.99M
                 }
             );
+
+            context.Cliente.AddRange(
+                new Cliente
+                {
+                    Nome = "Nome1",
+                    Sobrenome = "Sobrenome1",
+                    Email = "email1@email1.com",
+                    Endereco = "Endereco1",
+                },
+                new Cliente
+                {
+                    Nome = "Nome2",
+                    Sobrenome = "Sobrenome2",
+                    Email = "email2@email2.com",
+                    Endereco = "Endereco1",
+                },
+                new Cliente
+                {
+                    Nome = "Nome3",
+                    Sobrenome = "Sobrenome3",
+                    Email = "email3@email3.com",
+                    Endereco = "Endereco3",
+                },
+                new Cliente
+                {
+                    Nome = "Nome4",
+                    Sobrenome = "Sobrenome4",
+                    Email = "email4@email4.com",
+                    Endereco = "Endereco4",
+                }
+            );
+
             context.SaveChanges();
         }
     }
