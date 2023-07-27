@@ -42,7 +42,10 @@ namespace MvcMovie.Services
 
         public async Task DeleteClientAsync(Cliente? cliente)
         {
-            await _clienteRepositorio.DeleteAsync(cliente);
+            if (cliente != null)
+            {
+                await _clienteRepositorio.DeleteAsync(cliente);
+            }
         }
 
         // Other business logic and data access methods related to clients can be added here

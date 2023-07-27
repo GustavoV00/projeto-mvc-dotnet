@@ -28,6 +28,23 @@ namespace MvcMovie.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Fornecedor",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
+                    Estado = table.Column<string>(type: "TEXT", nullable: false),
+                    Cidade = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
+                    Contato = table.Column<string>(type: "TEXT", nullable: false),
+                    Endereco = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fornecedor", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Movie",
                 columns: table => new
                 {
@@ -50,6 +67,9 @@ namespace MvcMovie.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Cliente");
+
+            migrationBuilder.DropTable(
+                name: "Fornecedor");
 
             migrationBuilder.DropTable(
                 name: "Movie");

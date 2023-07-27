@@ -29,7 +29,9 @@ public class Startup
 
         // services.AddDbContext<MvcMovieContext>(options => options.UserS)
         services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+        services.AddScoped<IFornecedorRepositorio, FornecedorRepositorio>();
         services.AddScoped<IClienteService, ClienteService>();
+        services.AddScoped<IFornecedorService, FornecedorService>();
 
         services.AddControllersWithViews();
 

@@ -15,7 +15,7 @@ public static class SeedData
                 DbContextOptions<MvcMovieContext>>()))
         {
             // Look for any movies.
-            if (context.Movie.Any() && context.Cliente.Any())
+            if (context.Movie.Any() && context.Cliente.Any() && context.Fornecedor.Any())
             {
                 return;   // DB has been seeded
             }
@@ -85,6 +85,40 @@ public static class SeedData
                 }
             );
 
+            context.Fornecedor.AddRange(
+                new Fornecedor
+                {
+                    Nome = "Nome1",
+                    Estado = "Estado1",
+                    Cidade = "Cidade1",
+                    Contato = "Contato1",
+                    Endereco = "Endereco1",
+                },
+                new Fornecedor
+                {
+                    Nome = "Nome2",
+                    Estado = "Estado2",
+                    Cidade = "Cidade2",
+                    Contato = "Contato2",
+                    Endereco = "Endereco2",
+                },
+                new Fornecedor
+                {
+                    Nome = "Nome3",
+                    Estado = "Estado3",
+                    Cidade = "Cidade3",
+                    Contato = "Contato3",
+                    Endereco = "Endereco3",
+                },
+                new Fornecedor
+                {
+                    Nome = "Nome4",
+                    Estado = "Estado4",
+                    Cidade = "Cidade4",
+                    Contato = "Contato4",
+                    Endereco = "Endereco4",
+                }
+            );
             context.SaveChanges();
         }
     }
